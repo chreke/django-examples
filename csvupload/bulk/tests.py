@@ -13,3 +13,12 @@ class ProductFormTest(TestCase):
         self.assertTrue(form.is_valid())
 
 
+    def test_invalid_productform(self):
+        form = ProductForm({
+            "name": "ExpensiBike XL1000",
+            "sku": "2E50F578",
+            "price": -4,
+            "description": "A very expensive bike",
+        })
+        self.assertFalse(form.is_valid())
+

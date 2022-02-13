@@ -21,4 +21,3 @@ class ProductFormTest(TestCase):
             "description": "A very expensive bike",
         })
         self.assertFalse(form.is_valid())
-

@@ -21,7 +21,7 @@ class ImportView(View):
                 return render(
                     request,
                     "import.html",
-                    {"form": ImportForm(), "errors": form.errors}
+                    {"form": ImportForm(), "form_errors": form.errors}
                 )
             form.save()
         return render(request, "import.html", {"form": ImportForm()})

@@ -12,7 +12,8 @@ class ImportView(View):
         return render(request, "import.html", {"form": ImportForm()})
 
     def post(self, request, *args, **kwargs):
-        rows = request.FILES["data_file"].read().decode("utf-8")
+        products_file = request.FILES["products_file"]
+        rows = products_file.read().decode("utf-8")
         for row in DictReader(rows):
             form = ProductForm(row)
             if not form.is_valid():

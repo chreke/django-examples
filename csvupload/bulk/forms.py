@@ -10,4 +10,4 @@ class ProductForm(ModelForm):
 
 
 class ImportForm(Form):
-    data_file = FileField()
+    products_file = FileField()

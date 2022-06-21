@@ -10,3 +10,6 @@ class Product(models.Model):
         validators=[MinValueValidator(0)]
     )
     description = models.TextField()
+
+    def __str__(self):
+        return f"{self.name} ({self.sku})"

@@ -1,4 +1,5 @@
 from csv import DictReader
+from io import TextIOWrapper
 
 from django.shortcuts import render
 from django.views.generic.base import View
@@ -13,7 +14,7 @@ class ImportView(View):
 
     def post(self, request, *args, **kwargs):
         products_file = request.FILES["products_file"]
-        rows = products_file.read().decode("utf-8")
+        rows = TextIOWrapper(products_file, encoding="utf-8", newline="")
         for row in DictReader(rows):
             form = ProductForm(row)
             if not form.is_valid():

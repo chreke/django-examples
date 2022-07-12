@@ -1,0 +1,9 @@
+# OSX files
+.DS_Store
+
+# Python-specific files
+__pycache__/
+venv/
+
+# Django-specific files
+db.sqlite3

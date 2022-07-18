@@ -1,8 +1,8 @@
-from rest_framework.decorators import action
-from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.generics import ListAPIView
 from .models import User
 from .serializers import UserSerializer
+from django.shortcuts import get_object_or_404
 
 
 class UserViewSet(ModelViewSet):
@@ -10,8 +10,10 @@ class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     lookup_field = "username"
 
-    @action(detail=True, methods=["get"])
-    def followers(self, request, username):
-        user = self.get_object()
-        serializer = self.get_serializer(user.followers, many=True)
-        return Response(serializer.data)
+
+class FollowersListView(ListAPIView):
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs["username"])
+        return user.followers

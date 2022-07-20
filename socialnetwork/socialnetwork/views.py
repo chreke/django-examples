@@ -16,4 +16,4 @@ class FollowersListView(ListAPIView):
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs["username"])
-        return user.followers
+        return user.followers.all()

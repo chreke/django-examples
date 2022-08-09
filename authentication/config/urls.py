@@ -10,5 +10,6 @@ router = DefaultRouter()
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", views.CreateAccountView.as_view()),
-    path("sessions/", ObtainAuthToken.as_view())
+    path("sessions/", ObtainAuthToken.as_view()),
+    path("me/", views.MeView.as_view()),
 ]

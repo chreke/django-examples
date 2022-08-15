@@ -4,7 +4,7 @@ from rest_framework.views import APIView, Response
 
 from .serializers import UserSerializer
 
-class CreateAccountView(CreateAPIView):
+class CreateUserView(CreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = UserSerializer
 

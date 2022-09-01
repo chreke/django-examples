@@ -142,6 +142,6 @@ REST_FRAMEWORK = {
     ]
 }
 if DEBUG:
-    REST_FRAMEWORK["DEFAULT_AUTHENTICATION_CLASSES"].append(
-        "rest_framework.authentication.BasicAuthentication"
+    REST_FRAMEWORK["DEFAULT_AUTHENTICATION_CLASSES"].insert(
+        0, "rest_framework.authentication.BasicAuthentication"
     )
